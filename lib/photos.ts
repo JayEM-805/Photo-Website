@@ -13,7 +13,7 @@ export const photos: Photo[] = [
 ]
 
 // Categories derived from your photos
-export const categories = [...new Set(photos.map(p => p.category).filter(Boolean))] as string[]
+export const categories = Array.from(new Set(photos.map(p => p.category).filter((c): c is string => Boolean(c))))
 
 // Featured photos for the homepage
 export const featuredPhotos = photos.filter(p => p.featured)
