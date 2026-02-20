@@ -13,18 +13,22 @@ export default function GalleryPage() {
     : photos
 
   return (
-    <div className="pt-28 px-8 md:px-16 pb-24">
-      <div className="mb-12">
-        <h1 className="font-display text-5xl md:text-7xl mb-8 fade-up">Gallery</h1>
+    <div className="pt-28 px-8 md:px-12 pb-32 bg-[#f8f7f5] min-h-screen">
 
-        {/* Category filter */}
+      {/* Header */}
+      <div className="mb-14">
+        <h1 className="font-display font-light text-5xl md:text-6xl text-[#1a1a1a] mb-8">Gallery</h1>
+
+        {/* Filters */}
         {categories.length > 0 && (
-          <div className="flex gap-4 flex-wrap">
+          <div className="flex gap-6 items-center">
             <button
               onClick={() => setActiveCategory(null)}
               className={clsx(
-                'font-body text-xs tracking-widest uppercase pb-0.5 border-b transition-colors duration-200',
-                !activeCategory ? 'border-ink text-ink' : 'border-transparent text-ink/40 hover:text-ink'
+                'font-body text-[11px] tracking-[0.18em] uppercase transition-colors duration-200 pb-px border-b',
+                !activeCategory
+                  ? 'text-[#1a1a1a] border-[#1a1a1a]'
+                  : 'text-[#1a1a1a]/35 border-transparent hover:text-[#1a1a1a]'
               )}
             >
               All
@@ -34,8 +38,10 @@ export default function GalleryPage() {
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 className={clsx(
-                  'font-body text-xs tracking-widest uppercase pb-0.5 border-b transition-colors duration-200',
-                  activeCategory === cat ? 'border-ink text-ink' : 'border-transparent text-ink/40 hover:text-ink'
+                  'font-body text-[11px] tracking-[0.18em] uppercase transition-colors duration-200 pb-px border-b',
+                  activeCategory === cat
+                    ? 'text-[#1a1a1a] border-[#1a1a1a]'
+                    : 'text-[#1a1a1a]/35 border-transparent hover:text-[#1a1a1a]'
                 )}
               >
                 {cat}
@@ -45,30 +51,29 @@ export default function GalleryPage() {
         )}
       </div>
 
-      {filtered.length > 0 ? (
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
-          {filtered.map((photo) => (
-            <div key={photo.publicId} className="photo-hover break-inside-avoid">
+      {/* Masonry grid */}
+      <div className="columns-1 md:columns-2 lg:columns-3 gap-3 space-y-3">
+        {filtered.map((photo) => (
+          <div key={photo.publicId} className="photo-hover break-inside-avoid">
+            <div className="bg-[#1a1a1a]/5">
               <img
                 src={cloudinaryUrl(photo.publicId, { width: 900, quality: 'auto', format: 'auto', crop: 'fit' })}
                 alt={photo.title || ''}
                 className="w-full"
                 loading="lazy"
               />
-              {photo.title && (
-                <p className="font-body text-xs text-ink/40 mt-2 tracking-wide">{photo.title}</p>
-              )}
             </div>
-          ))}
-        </div>
-      ) : (
-        <div className="border border-dashed border-ink/20 rounded p-16 text-center">
-          <p className="font-body text-ink/40 text-sm mb-2">No photos yet.</p>
-          <p className="font-body text-ink/30 text-xs">
-            Add your Cloudinary public IDs to <code className="bg-ink/5 px-1">lib/photos.ts</code>
-          </p>
-        </div>
-      )}
+            {photo.title && (
+              <div className="flex items-center justify-between mt-2 mb-6">
+                <p className="font-body text-xs text-[#1a1a1a]/40 tracking-wide">{photo.title}</p>
+                {photo.category && (
+                  <p className="font-body text-[10px] tracking-[0.15em] uppercase text-[#1a1a1a]/25">{photo.category}</p>
+                )}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

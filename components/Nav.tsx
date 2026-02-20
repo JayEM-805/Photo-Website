@@ -5,7 +5,6 @@ import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
 
 const links = [
-  { href: '/', label: 'Home' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
@@ -15,20 +14,20 @@ export default function Nav() {
   const pathname = usePathname()
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 md:px-16 py-6 mix-blend-multiply">
-      <Link href="/" className="font-display text-xl text-ink">
-        JM {/* Update with your name/initials */}
+    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 md:px-12 py-7">
+      <Link href="/" className="font-display text-2xl font-light tracking-widest text-[#1a1a1a]">
+        JM
       </Link>
-      <ul className="flex gap-8">
+      <ul className="flex gap-10">
         {links.map(({ href, label }) => (
           <li key={href}>
             <Link
               href={href}
               className={clsx(
-                'font-body text-xs tracking-widest uppercase transition-colors duration-200',
+                'font-body text-[11px] tracking-[0.18em] uppercase transition-colors duration-300',
                 pathname === href
-                  ? 'text-accent'
-                  : 'text-ink/60 hover:text-ink'
+                  ? 'text-[#1a1a1a]'
+                  : 'text-[#1a1a1a]/40 hover:text-[#1a1a1a]'
               )}
             >
               {label}

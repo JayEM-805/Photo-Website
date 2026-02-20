@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, DM_Sans } from 'next/font/google'
+import { Cormorant_Garamond, DM_Sans } from 'next/font/google'
 import './globals.css'
 import Nav from '@/components/Nav'
 
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
   variable: '--font-display',
+  weight: ['300', '400', '500'],
   display: 'swap',
 })
 
@@ -16,14 +17,14 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Portfolio | Photography',
-  description: 'A photography portfolio.',
+  title: 'JM — Photography',
+  description: 'Landscape and travel photography by JM.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
-      <body className="bg-paper text-ink font-body antialiased">
+    <html lang="en" className={`${cormorant.variable} ${dmSans.variable}`}>
+      <body>
         <Nav />
         <main>{children}</main>
       </body>

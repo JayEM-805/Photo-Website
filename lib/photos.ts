@@ -1,19 +1,14 @@
-// lib/photos.ts
-// Add your Cloudinary photo public IDs here.
-// After uploading to Cloudinary, find the "Public ID" in the Media Library.
-// Example public ID: "portfolio/my-photo" (no file extension needed)
-
 import { Photo } from './cloudinary'
 
 export const photos: Photo[] = [
-  // Replace these with your actual Cloudinary public IDs
-  // { publicId: 'portfolio/photo-1', title: 'Mountain Sunrise', category: 'landscape', featured: true },
-  // { publicId: 'portfolio/photo-2', title: 'Street Life', category: 'street' },
-  // { publicId: 'portfolio/photo-3', title: 'Portrait', category: 'portrait', featured: true },
+  { publicId: 'Brazil_1_-_IMG_5354_kkjvqt', title: 'Brazil', category: 'Travel', featured: true },
+  { publicId: 'Spain_1_-_P1070582_dyvns0', title: 'Spain', category: 'Travel', featured: true },
+  { publicId: 'Carp_1_-_P2190976_wsljgh', title: 'Carpinteria', category: 'Landscape', featured: true },
+  { publicId: 'Presidio_-_IMG_2907_lnuhmi', title: 'Presidio', category: 'Landscape', featured: false },
+  { publicId: 'Big_Sur_1_-_P2190874_qlzfid', title: 'Big Sur', category: 'Landscape', featured: true },
+  { publicId: 'Sedona_1_-_9ADB349D-0A30-4801-8839-3F418641AF94_njshsd', title: 'Sedona', category: 'Landscape', featured: false },
 ]
 
-// Categories derived from your photos
 export const categories = Array.from(new Set(photos.map(p => p.category).filter((c): c is string => Boolean(c))))
 
-// Featured photos for the homepage
 export const featuredPhotos = photos.filter(p => p.featured)
