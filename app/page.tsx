@@ -9,12 +9,16 @@ export default function Home() {
       {/* Hero */}
       <section className="relative flex flex-col justify-center min-h-screen px-8 md:px-12">
         <div className="max-w-3xl">
-          <p className="fade-in fade-in-1 font-body text-[11px] tracking-[0.25em] uppercase text-[#1a1a1a]/40 mb-6">
-            Landscape & Travel
-          </p>
-          <h1 className="fade-in fade-in-2 font-display font-light text-[clamp(3.5rem,8vw,7rem)] leading-[1.05] text-[#1a1a1a] mb-10">
-            Finding stillness<br />in the world.
+          <h1 className="fade-in fade-in-1 font-display font-light text-[clamp(1.5rem,4vw,4rem)] leading-[1.05] text-[#1a1a1a] mb-6 whitespace-nowrap">
+            Finding moments of stillness through the tides.
           </h1>
+          <div className="fade-in fade-in-2 flex items-center gap-6 mb-10">
+            <Link href="/gallery?category=California" className="font-body text-[11px] tracking-[0.2em] uppercase text-[#1a1a1a]/50 hover:text-[#1a1a1a] transition-colors duration-300">California</Link>
+            <span className="w-px h-3 bg-[#1a1a1a]/20" />
+            <Link href="/gallery?category=Travel" className="font-body text-[11px] tracking-[0.2em] uppercase text-[#1a1a1a]/50 hover:text-[#1a1a1a] transition-colors duration-300">Travel</Link>
+            <span className="w-px h-3 bg-[#1a1a1a]/20" />
+            <Link href="/gallery?category=Golf" className="font-body text-[11px] tracking-[0.2em] uppercase text-[#1a1a1a]/50 hover:text-[#1a1a1a] transition-colors duration-300">Golf</Link>
+          </div>
           <div className="fade-in fade-in-3 flex items-center gap-8">
             <Link
               href="/gallery"
@@ -42,16 +46,6 @@ export default function Home() {
       {/* Featured grid */}
       {featuredPhotos.length > 0 && (
         <section className="px-8 md:px-12 pb-32">
-          <div className="flex items-center justify-between mb-10">
-            <h2 className="font-display font-light text-3xl text-[#1a1a1a]">Selected Work</h2>
-            <Link
-              href="/gallery"
-              className="font-body text-[11px] tracking-[0.2em] uppercase text-[#1a1a1a]/40 hover:text-[#1a1a1a] transition-colors duration-300"
-            >
-              All Work →
-            </Link>
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {featuredPhotos.map((photo, i) => (
               <div

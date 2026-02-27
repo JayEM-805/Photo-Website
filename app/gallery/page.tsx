@@ -1,12 +1,15 @@
 'use client'
 
 import { useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { photos, categories } from '@/lib/photos'
 import { cloudinaryUrl } from '@/lib/cloudinary'
 import clsx from 'clsx'
 
 export default function GalleryPage() {
-  const [activeCategory, setActiveCategory] = useState<string | null>(null)
+  const searchParams = useSearchParams()
+  const initialCategory = searchParams.get('category')
+  const [activeCategory, setActiveCategory] = useState<string | null>(initialCategory)
 
   const filtered = activeCategory
     ? photos.filter(p => p.category === activeCategory)
