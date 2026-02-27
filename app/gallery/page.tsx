@@ -1,12 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { photos, categories } from '@/lib/photos'
 import { cloudinaryUrl } from '@/lib/cloudinary'
 import clsx from 'clsx'
 
-export default function GalleryPage() {
+function GalleryContent() {
   const searchParams = useSearchParams()
   const initialCategory = searchParams.get('category')
   const [activeCategory, setActiveCategory] = useState<string | null>(initialCategory)
@@ -78,5 +78,13 @@ export default function GalleryPage() {
         ))}
       </div>
     </div>
+  )
+}
+
+export default function GalleryPage() {
+  return (
+    <Suspense>
+      <GalleryContent />
+    </Suspense>
   )
 }
