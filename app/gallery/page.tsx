@@ -20,7 +20,7 @@ function GalleryContent() {
 
       {/* Header */}
       <div className="mb-14">
-        <h1 className="font-display font-light text-5xl md:text-6xl text-[#1a1a1a] mb-8">Gallery</h1>
+        <h1 className="font-display font-light text-5xl md:text-6xl text-[#1c1917] mb-8">Gallery</h1>
 
         {/* Filters */}
         {categories.length > 0 && (
@@ -30,8 +30,8 @@ function GalleryContent() {
               className={clsx(
                 'font-body text-[11px] tracking-[0.18em] uppercase transition-colors duration-200 pb-px border-b',
                 !activeCategory
-                  ? 'text-[#1a1a1a] border-[#1a1a1a]'
-                  : 'text-[#1a1a1a]/35 border-transparent hover:text-[#1a1a1a]'
+                  ? 'text-[#1c1917] border-[#1c1917]'
+                  : 'text-[#1c1917]/35 border-transparent hover:text-[#1c1917]'
               )}
             >
               All
@@ -43,8 +43,8 @@ function GalleryContent() {
                 className={clsx(
                   'font-body text-[11px] tracking-[0.18em] uppercase transition-colors duration-200 pb-px border-b',
                   activeCategory === cat
-                    ? 'text-[#1a1a1a] border-[#1a1a1a]'
-                    : 'text-[#1a1a1a]/35 border-transparent hover:text-[#1a1a1a]'
+                    ? 'text-[#1c1917] border-[#1c1917]'
+                    : 'text-[#1c1917]/35 border-transparent hover:text-[#1c1917]'
                 )}
               >
                 {cat}
@@ -58,7 +58,7 @@ function GalleryContent() {
       <div className="columns-1 md:columns-2 lg:columns-3 gap-3 space-y-3">
         {filtered.map((photo) => (
           <div key={photo.publicId} className="photo-hover break-inside-avoid rounded-2xl overflow-hidden">
-            <div className="bg-[#1a1a1a]/5 rounded-2xl overflow-hidden">
+            <div className="bg-[#1c1917]/5 rounded-2xl overflow-hidden">
               <img
                 src={cloudinaryUrl(photo.publicId, { width: 900, quality: 'auto', format: 'auto', crop: 'fit' })}
                 alt={photo.title || ''}
