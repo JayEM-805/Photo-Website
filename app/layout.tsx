@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Cormorant_Garamond, DM_Sans } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import Nav from '@/components/Nav'
 
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Nav />
         <main>{children}</main>
+        <Analytics />
       </body>
     </html>
   )
