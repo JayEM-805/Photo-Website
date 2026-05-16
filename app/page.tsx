@@ -4,7 +4,7 @@ import { cloudinaryUrl } from '@/lib/cloudinary'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#ede8e3]">
+    <div className="min-h-screen bg-[#f5f2ee]">
 
       {/* Hero */}
       <section className="relative flex flex-col justify-center min-h-screen px-8 md:px-12">
@@ -49,9 +49,9 @@ export default function Home() {
                     className="w-full h-full object-cover"
                     style={i === 1 ? { objectPosition: 'center 90%' } : {}}
                   />
-                  <div className="absolute inset-0 flex items-start justify-start p-4">
-                    <span className="font-body text-[11px] tracking-[0.3em] uppercase text-white px-3 py-1.5 rounded-full bg-black/25 backdrop-blur-sm">
-                      {photo.category}
+                  <div className="absolute inset-0 flex items-end justify-end p-5 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                    <span className="font-display font-semibold text-[clamp(1rem,2.5vw,1.4rem)] tracking-[0.12em] uppercase text-white/70 drop-shadow-md">
+                      {photo.category}.
                     </span>
                   </div>
                   {photo.location && (
