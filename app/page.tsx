@@ -54,13 +54,6 @@ export default function Home() {
                       {photo.category}.
                     </span>
                   </div>
-                  {photo.location && (
-                    <div className="absolute inset-0 flex items-end justify-end p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
-                      <span className="font-body text-[10px] tracking-[0.15em] text-white/90">
-                        {photo.location}
-                      </span>
-                    </div>
-                  )}
                 </div>
               </Link>
             ))}
